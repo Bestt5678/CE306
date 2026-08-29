@@ -1,0 +1,127 @@
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+/* หน้าเว็บทั้งหมด */
+body { 
+    background-color: #f4f7f6; 
+    display: flex; 
+    justify-content: center; 
+    padding: 20px; 
+}
+/* กล่องเนื้อหาหลัก */
+.container { 
+    background-color: white; 
+    padding: 20px 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    width: 100%; 
+    max-width: 600px; 
+}
+h2 { 
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+/* สรุปยอดเงิน  */
+.summary-container { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 20px; 
+    text-align: center; 
+}
+.summary-box { 
+    flex: 1; 
+    padding: 15px; 
+    margin: 0 5px; 
+    border-radius: 5px; 
+    color: white; 
+}
+/*สีพื้นหลังของกล่องสรุปยอดเงิน*/
+.box-balance { background-color: #2c3e50; }
+.box-income { background-color: #2ecc71; }
+.box-expense { background-color: #e74c3c; }
+.summary-box h4 { 
+    margin-bottom: 5px; 
+    font-weight: normal; 
+}
+.summary-box p { 
+    font-size: 20px; 
+    font-weight: bold; 
+}
+
+/* ฟอร์มและปุ่ม */
+form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 20px; 
+}
+/* ช่องกรอกข้อมูลและปุ่ม */
+input, select, button { 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 16px; 
+}
+/* ปุ่มเพิ่มรายการ */
+button.btn-add { 
+    background-color: #3498db; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    font-weight: bold; 
+}
+button.btn-add:hover { 
+    background-color: #2980b9; 
+}
+/* ช่องค้นหา */
+.search-box { 
+    margin-bottom: 15px; 
+}
+.search-box input { 
+    width: 100%; 
+    border: 2px solid #3498db; 
+}
+/* ตารางประวัติ */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-bottom: 20px; 
+}
+/* สีเส้นขอบของตาราง */
+th, td { 
+    text-align: left; 
+    padding: 12px; 
+    border-bottom: 1px solid #ddd; 
+}
+/* สีพื้นหลังของหัวตาราง */
+th { 
+    background-color: #f2f2f2; 
+}
+/*สีตัวอักษรของประเภทรายรับ */
+.type-income { 
+    color: #2ecc71; 
+    font-weight: bold; 
+}
+/* สีตัวอักษรของประเภทรายจ่าย */
+.type-expense { 
+    color: #e74c3c; 
+    font-weight: bold; 
+}
+/* ปุ่มล้างข้อมูล*/
+button.btn-clear { 
+    background-color: #e74c3c; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    width: 100%; 
+    font-weight: bold; 
+}
+button.btn-clear:hover { 
+    background-color: #c0392b; 
+}
