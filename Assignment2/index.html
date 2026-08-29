@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แปลงเงิน</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    <div class="box">
+        <h1>แปลงเงิน usd ↔ bath</h1>
+        <h3><p id="time-text" style="color: black; font-size: 14px;"></p></h3> 
+        <p id="rate-text">อัตราแลกเปลี่ยน: 1 usd = 33 bath</p>
+<!--กรอก 2 ฝั่ง-->
+        <label>ดอลลาร์ (usd):</label>
+        <input type="number" id="input-usd" oninput="usdTobath()" onchange="saveToHistory()">
+        <label>บาท (bath):</label>
+        <input type="number" id="input-bath" oninput="bathTousd()" onchange="saveToHistory()">
+<!--ปุ่มล้าง-->
+        <button onclick="clearData()">Reset</button>  
+        <hr>
+<!--แสดงประวัติ-->
+        <h3>ประวัติ 10 รายการล่าสุด</h3>
+        <ul id="history-list"></ul>
+        <button onclick="clearHistory()">Clear</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
