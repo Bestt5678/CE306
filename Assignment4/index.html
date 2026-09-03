@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best GAMING | Next-Gen Portal</title>
+    
+    <!-- [External Assets]: ดึง Google Fonts (Prompt), Bootstrap 5 CSS และ Bootstrap Icons มาใช้งาน -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- [Custom CSS]: กำหนด Variable สี, ฟอนต์หลัก, เอฟเฟกต์ Glassmorphism และ Hover Card -->
+    <style>
+        :root {
+            --font-main: 'Prompt', sans-serif;
+            --accent-cyan: #00f2fe;
+            --accent-purple: #7928ca;
+        }
+        body { font-family: var(--font-main); background-color: #0d1117; }
+        
+        /* สร้างเอฟเฟกต์พื้นหลังโปร่งแสงเบลอ (Glassmorphism) */
+        .bg-glass { background: rgba(22, 27, 34, 0.8); backdrop-filter: blur(12px); }
+        
+        /* ทำข้อความสีแบบไล่เฉด (Gradient Text) */
+        .gradient-text {
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* เอฟเฟกต์การ์ดลอยเมื่อนำเมาส์ไปชี้ */
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,242,254,0.15); }
+    </style>
+</head>
+<body>
+
+    <!-- [Component 1: Navbar]: แถบเมนูด้านบนแบบตรึงติดขอบ (sticky-top) พร้อมปุ่มเปิด Modal เข้าสู่ระบบ -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-glass border-bottom border-dark-subtle">
+        <div class="container">
+            <!-- โลโก้เว็บไซต์ -->
+            <a class="navbar-brand fw-bold fs-4" href="index.html">
+                <i class="bi bi-controller text-info me-2"></i>Best<span class="gradient-text">Gaming</span>
+            </a>
+            
+            <!-- ปุ่ม Hamburger สำหรับหน้าจอมือถือ -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- ลิงก์เมนูหลัก -->
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="bi bi-house me-1"></i>หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="games.html"><i class="bi bi-grid-3x3-gap me-1"></i>คลังเกม & สเปก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html"><i class="bi bi-headset me-1"></i>รีวิวเกม</a></li>
+                </ul>
+                <!-- ปุ่มกดเรียกใช้ Modal Popup -->
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-info btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>เข้าสู่ระบบ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- [Component 2: Hero Banner]: ป้ายแบนเนอร์ขนาดใหญ่แสดงกิจกรรมไฮไลท์หลัก -->
+    <section class="container my-4">
+        <div class="p-5 rounded-4 bg-dark border border-secondary shadow-lg position-relative overflow-hidden">
+            <div class="row align-items-center position-relative z-1">
+                <div class="col-lg-7">
+                    <span class="badge bg-danger mb-2"><i class="bi bi-fire me-1"></i>FEATURED EVENT 2026</span>
+                    <h1 class="display-4 fw-bold mb-3">FEATURED & RECOMMENDED</h1>
+                    <div class="d-flex gap-3">
+                        <a href="games.html" class="btn btn-info btn-lg fw-semibold px-4 rounded-3"><i class="bi bi-play-circle me-2"></i>ดูรายละเอียด</a>
+                        <a href="reviews.html" class="btn btn-outline-light btn-lg fw-semibold px-4 rounded-3">REVIEW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [Component 3: Card Grid]: ระบบแสดงผลเกมยอดนิยมโดยใช้ Grid System แบบ Dynamic (1 คอลัมน์บนมือถือ / 3 คอลัมน์บนจอใหญ่) -->
+    <section class="container my-5">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h3 class="fw-bold mb-0">🔥 เกมที่ได้รับการจัดอันดับสูงสุด</h3>
+            </div>
+            <a href="games.html" class="btn btn-link text-info text-decoration-none">ดูทั้งหมด <i class="bi bi-arrow-right"></i></a>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- การ์ดรายการที่ 1 -->
+            <div class="col">
+                <div class="card h-100 bg-dark border-secondary card-hover">
+                    <img src="images/valorant.jpg" class="card-img-top" alt="VALORANT">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-info-subtle text-info border border-info">FPS / Competitive</span>
+                            <span class="text-warning small"><i class="bi bi-star-fill me-1"></i>4.9</span>
+                        </div>
+                        <h5 class="card-title fw-bold">VALORANT</h5>
+                        <p class="card-text text-secondary small">เกมยิงเชิงกลยุทธ์แบบ 5v5 ที่ผสานระหว่างทักษะการยิงที่แม่นยำและความสามารถพิเศษ</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top border-secondary d-flex justify-content-between align-items-center">
+                        <span class="text-success fw-bold">Free to Play</span>
+                        <button class="btn btn-sm btn-outline-info"><i class="bi bi-plus-lg me-1"></i>เพิ่มในคลัง</button>
+                    </div>
+                </div>
+            </div>
+            <!-- การ์ดรายการที่ 2 -->
+            <div class="col">
+                <div class="card h-100 bg-dark border-secondary card-hover">
+                    <img src="images/eldenring.jpg" class="card-img-top" alt="ELDEN RING">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-purple-subtle text-warning border border-warning">Action RPG</span>
+                            <span class="text-warning small"><i class="bi bi-star-fill me-1"></i>4.95</span>
+                        </div>
+                        <h5 class="card-title fw-bold">ELDEN RING</h5>
+                        <p class="card-text text-secondary small">ผจญภัยในดินแดนแทรกซึมด้วยความท้าทายระดับสูงสุด การันตีรางวัล Game of the Year</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top border-secondary d-flex justify-content-between align-items-center">
+                        <span class="fw-bold">฿1,790</span>
+                        <button class="btn btn-sm btn-outline-info"><i class="bi bi-cart-plus me-1"></i>สั่งซื้อเลย</button>
+                    </div>
+                </div>
+            </div>
+            <!-- การ์ดรายการที่ 3 -->
+            <div class="col">
+                <div class="card h-100 bg-dark border-secondary card-hover">
+                    <img src="images/cyberpunk.jpg" class="card-img-top" alt="Cyberpunk 2077">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-danger-subtle text-danger border border-danger">Open World</span>
+                            <span class="text-warning small"><i class="bi bi-star-fill me-1"></i>4.7</span>
+                        </div>
+                        <h5 class="card-title fw-bold">Cyberpunk 2077</h5>
+                        <p class="card-text text-secondary small">สัมผัส Night City เมืองแห่งอนาคตที่เต็มไปด้วยอันตรายและเทคโนโลยีไซเบอร์เนติกส์</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top border-secondary d-flex justify-content-between align-items-center">
+                        <span class="fw-bold">฿1,499</span>
+                        <button class="btn btn-sm btn-outline-info"><i class="bi bi-cart-plus me-1"></i>สั่งซื้อเลย</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [Component 4: Modal Popup]: หน้าต่างป๊อปอัพเข้าสู่ระบบ ซ่อนไว้จนกว่ากดปุ่มเข้าสู่ระบบ -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark border border-secondary">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-shield-lock text-info me-2"></i>เข้าสู่ระบบ Best Gaming Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label text-secondary small">อีเมลผู้ใช้งาน</label>
+                            <input type="email" class="form-control bg-body-tertiary border-secondary" placeholder="67112845@dpu.ac.th" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-secondary small">รหัสผ่าน</label>
+                            <input type="password" class="form-control bg-body-tertiary border-secondary" placeholder="********" required>
+                        </div>
+                        <button type="submit" class="btn btn-info w-100 fw-bold">เข้าสู่ระบบ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- [Component 5: Footer]: ส่วนท้ายเว็บไซต์แสดง ลิขสิทธิ์ และข้อมูลเทคโนโลยีที่ใช้พัฒนา -->
+    <footer class="bg-black border-top border-dark-subtle mt-5 py-4">
+        <div class="container text-center text-secondary small">
+            <p class="mb-1">&copy; 2026 Best GAMING</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Bundle (จำเป็นสำหรับการสั่งงาน Modal และ Responsive Navbar) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
